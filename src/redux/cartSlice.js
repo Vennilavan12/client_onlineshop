@@ -31,6 +31,8 @@ const cartSlice=createSlice({
         },
         clearCart:(state,action)=>{
             state.cartItems=[];
+            state.cartTotalQuantity=0;
+            state.cartTotalAmount=0;
             toast.error(` Cart cleared `,{
                 position:"bottom-left"
             })

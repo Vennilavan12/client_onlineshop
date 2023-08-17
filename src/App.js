@@ -6,6 +6,9 @@ import {Routes,Route} from 'react-router-dom'
 import NotFound from './components/NotFound';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
+import Signup from './components/Signup';
+import Login from './components/Login';
+import CheckoutSuccess from './components/CheckoutSuccess';
 function App() {
   
   return (
@@ -14,9 +17,14 @@ function App() {
     <Navbar/>
      <Routes>
         <Route exact path='/' element={<Home/>}/>
-        <Route exact path='/cart' element={<Cart/>}/>   
-        <Route exact path='*' element={<NotFound/>}/>     
-    </Routes>
+        <Route exact path='/cart' element={<Cart/>}/> 
+        <Route exact path='/checkout-success' element={<CheckoutSuccess/>}/>   
+       
+        <Route exact path='/login' element={<Login/>}/>   
+        <Route exact path='/signup' element={<Signup/>}/> 
+        <Route exact path='/checkout-success' element={<CheckoutSuccess/>}/> 
+        <Route exact path='*' element={<NotFound/>}/>   
+    </Routes> 
     </div>
   );
 }

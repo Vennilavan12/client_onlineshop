@@ -3,8 +3,12 @@ import { useGetAllProductsQuery } from "../redux/services";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
+import { useLoginUserMutation } from '../redux/services'
 
 const Home = () => {
+
+  const [loginUser,{data1,isSuccess,isError}]=useLoginUserMutation()
+  console.log(data1)
 
   const dispatch=useDispatch()
   const navigate=useNavigate()
@@ -16,6 +20,9 @@ const Home = () => {
 
   const { data, error, isLoading } = useGetAllProductsQuery();
   console.log(data);
+
+ 
+
   
   return (
     <div className="container-fluid">
