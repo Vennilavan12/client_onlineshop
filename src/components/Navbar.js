@@ -9,15 +9,15 @@ import { clearCart } from "../redux/cartSlice";
 const Navbar = () => {
   const { cartTotalQuantity } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     // Perform any additional logout-related tasks here
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     dispatch(clearCart()); // Clear the cart when logging out
     // Redirect the user to the appropriate page, e.g., home or login
     // You can use react-router's history or Link component to navigate
-    navigate('/')
+    navigate("/");
   };
 
   return (
@@ -29,15 +29,19 @@ const Navbar = () => {
           </Link>
 
           <div className="d-flex align-items-center">
-            {localStorage.getItem('token') ? (
+            {localStorage.getItem("token") ? (
               <>
                 <Link to="/" className="me-3 nav-link">
                   Home
                 </Link>
-                
+
+                <Link to="/checkout-success" className="me-3 nav-link">
+                  Your Orders
+                </Link>
+
                 <button
                   className="me-3 nav-link btn"
-                  onClick={()=>handleLogout()}
+                  onClick={() => handleLogout()}
                 >
                   Logout
                 </button>

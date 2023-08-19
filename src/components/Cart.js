@@ -26,6 +26,7 @@ const Cart = () => {
     dispatch(addToCart(element))
   }
 
+ 
   const handleClearCart=()=>{
     dispatch(clearCart())
   }
@@ -124,7 +125,7 @@ const Cart = () => {
   <td colSpan={2} className="text-center">
     {localStorage.getItem('token')?
    
-   <PayoutButton cartItems={cart.cartItems}/>
+   <PayoutButton cartItems={cart.cartItems} />
     :
     <Link to='/login'className="btn btn-primary px-5" type="button">Login to CheckOut</Link>
   }
