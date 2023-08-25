@@ -11,24 +11,28 @@ const CheckoutSuccess = () => {
   const navigate = useNavigate();
   console.log(localStorage.getItem("token"));
   const [orders, setOrders] = useState([]);
-
-
+  const userToken=localStorage.getItem("token")
+  
+  
   useEffect(() => {
     dispatch(getTotals());
   }, [cart, dispatch]);
 
 
   useEffect(() => {
-    axios.get(`${URL}/orders`)
-    .then((response) => {
-      console.log(response.data); // Check the orders received from the server
-      setOrders(response.data); // Update the state with received orders
+    axios.get(`${URL}/orders`,{
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${userToken}`
+      }})
+    .then((response) => {      
+      console.log(response.data);
+      setOrders(response.data);
     })
     .catch((error) => {
       console.error("Error fetching orders:", error);
     });
-  },[]);
-
+  }, []);
   
   return (
     <>

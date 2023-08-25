@@ -15,13 +15,10 @@ const Home = () => {
 
   const handleAddToCart=(element)=>{
     dispatch(addToCart(element))
-    navigate('/cart')
   }
 
   const { data, error, isLoading } = useGetAllProductsQuery();
   console.log(data);
-
- 
 
   
   return (

@@ -17,14 +17,16 @@ const cartSlice=createSlice({
             const itemIndex=state.cartItems.findIndex((item)=>item.id===action.payload.id)
             if(itemIndex>=0){
                 state.cartItems[itemIndex].cartQuantity +=1;
+                state.cartTotalQuantity=state.cartItems.reduce((acc,cv)=>acc+cv.cartQuantity,0)
                 toast.info(`increased ${state.cartItems[itemIndex].name} Product Quantity`,{
                     position:"bottom-left"
                 })
             }else{
                 const tempProduct={...action.payload,cartQuantity:1};
                 state.cartItems.push(tempProduct)
+                state.cartTotalQuantity=state.cartItems.reduce((acc,cv)=>acc+cv.cartQuantity,0)
                 toast.success(`${action.payload.name} added to cart`,{
-                    position:"bottom-left"
+                position:"bottom-left"
                 })
             }  
             localStorage.setItem("cartItems",JSON.stringify(state.cartItems))          

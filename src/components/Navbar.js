@@ -20,6 +20,13 @@ const Navbar = () => {
     navigate("/");
   };
 
+  
+
+  const handleNavigateToCart = () => {
+    // Call this function when you want to navigate
+    navigate('/cart'); // Replace '/cart' with your actual cart route
+  };
+
   return (
     <div>
       <nav className="navbar navbar-light bg-light">
@@ -45,7 +52,7 @@ const Navbar = () => {
                 >
                   Logout
                 </button>
-                <IconButton aria-label="cart">
+                <IconButton aria-label="cart" onClick={handleNavigateToCart}>
                   <Badge badgeContent={cartTotalQuantity} color="success">
                     <ShoppingCartIcon color="action" />
                   </Badge>
@@ -62,7 +69,7 @@ const Navbar = () => {
                 <Link to="/signup" className="me-3 nav-link">
                   SignUp
                 </Link>
-                <IconButton aria-label="cart">
+                <IconButton aria-label="cart" onClick={handleNavigateToCart}>
                   <Badge badgeContent={cartTotalQuantity} color="success">
                     <ShoppingCartIcon color="action" />
                   </Badge>

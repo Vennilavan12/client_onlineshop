@@ -22,7 +22,6 @@ function App() {
        
         <Route exact path='/login' element={<Login/>}/>   
         <Route exact path='/signup' element={<Signup/>}/> 
-        <Route exact path='/checkout-success' element={<CheckoutSuccess/>}/> 
         <Route exact path='*' element={<NotFound/>}/>   
     </Routes> 
     </div>
